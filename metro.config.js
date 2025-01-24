@@ -1,11 +1,16 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
-
 /**
- * Metro configuration
- * https://reactnative.dev/docs/metro
+ * Metro configuration for React Native
+ * https://facebook.github.io/metro/docs/configuration
  *
- * @type {import('@react-native/metro-config').MetroConfig}
+ * @format
  */
-const config = {};
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+module.exports = {
+    resolver: {
+      sourceExts: ['jsx', 'js', 'ts', 'tsx'], // Add any extensions you're using
+    },
+    transformer: {
+      babelTransformerPath: require.resolve('metro-react-native-babel-transformer'),
+    },
+  };
+  
